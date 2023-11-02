@@ -19,10 +19,11 @@ public final class Functions {
     }
 
     public static void acceptTrueOrElseThrow(Boolean value, EmptyAction action, Supplier<? extends Throwable> supplier) {
+    public static <X extends Throwable> void acceptTrueOrElseThrow(Boolean value, EmptyAction action, Supplier<? extends X> supplier) throws X {
         if (Boolean.TRUE.equals(value))
             action.run();
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static void acceptFalse(Boolean value, EmptyAction action) {
@@ -37,11 +38,11 @@ public final class Functions {
             elseAction.run();
     }
 
-    public static void acceptFalseOrElseThrow(Boolean value, EmptyAction action, Supplier<? extends Throwable> supplier) {
+    public static <X extends Throwable> void acceptFalseOrElseThrow(Boolean value, EmptyAction action, Supplier<? extends X> supplier) throws X {
         if (Boolean.FALSE.equals(value))
             action.run();
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T> Boolean isPresentAndEqualTo(T value, T toBeEqualTo) {
@@ -60,11 +61,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T> void ifPresentAndEqualToDoOrElseThrow(T value, T toBeEqualTo, Consumer<T> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, X extends Throwable> void ifPresentAndEqualToDoOrElseThrow(T value, T toBeEqualTo, Consumer<T> consumer, Supplier<? extends X> supplier) throws X {
         if (Optional.ofNullable(value).isPresent() && value.equals(toBeEqualTo))
             consumer.accept(value);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T> Boolean isPresentAndItsTrue(T value, Boolean assertion) {
@@ -83,11 +84,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T> void ifPresentAndItsTrueDoOrElseThrow(T value, Boolean assertion, Consumer<T> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, X extends Throwable> void ifPresentAndItsTrueDoOrElseThrow(T value, Boolean assertion, Consumer<T> consumer, Supplier<? extends X> supplier) throws X {
         if (Optional.ofNullable(value).isPresent() && Boolean.TRUE.equals(assertion))
             consumer.accept(value);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T> Boolean isPresentAndItsFalse(T value, Boolean assertion) {
@@ -106,11 +107,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T> void ifPresentAndItsFalseDoOrElseThrow(T value, Boolean assertion, Consumer<T> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, X extends Throwable> void ifPresentAndItsFalseDoOrElseThrow(T value, Boolean assertion, Consumer<T> consumer, Supplier<? extends X> supplier) throws X {
         if (Optional.ofNullable(value).isPresent() && Boolean.FALSE.equals(assertion))
             consumer.accept(value);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifNotEmptyDo(U collection, Consumer<U> consumer) {
@@ -125,11 +126,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T, U extends Collection<T>> void ifNotEmptyDoOrElseThrow(U collection, Consumer<U> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, U extends Collection<T>, X extends Throwable> void ifNotEmptyDoOrElseThrow(U collection, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
         if (Optional.ofNullable(collection).isPresent() && !collection.isEmpty())
             consumer.accept(collection);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifNotEmptyDoForEach(U collection, Consumer<T> consumer) {
@@ -144,11 +145,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T, U extends Collection<T>> void ifNotEmptyDoForEachOrElseThrow(U collection, Consumer<T> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, U extends Collection<T>, X extends Throwable> void ifNotEmptyDoForEachOrElseThrow(U collection, Consumer<T> consumer, Supplier<? extends X> supplier) throws X {
         if (Optional.ofNullable(collection).isPresent() && !collection.isEmpty())
             collection.forEach(consumer);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifAllMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
@@ -163,11 +164,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T, U extends Collection<T>> void ifAllMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, U extends Collection<T>, X extends Throwable> void ifAllMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
         if (collection.stream().allMatch(predicate))
             consumer.accept(collection);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifAnyMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
@@ -182,11 +183,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T, U extends Collection<T>> void ifAnyMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, U extends Collection<T>, X extends Throwable> void ifAnyMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
         if (collection.stream().anyMatch(predicate))
             consumer.accept(collection);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifNoneMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
@@ -201,11 +202,11 @@ public final class Functions {
             action.run();
     }
 
-    public static <T, U extends Collection<T>> void ifNoneMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends Throwable> supplier) {
+    public static <T, U extends Collection<T>, X extends Throwable> void ifNoneMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
         if (collection.stream().noneMatch(predicate))
             consumer.accept(collection);
         else
-            supplier.get();
+            throw supplier.get();
     }
 
 }
