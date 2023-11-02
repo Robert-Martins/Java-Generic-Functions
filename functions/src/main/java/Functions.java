@@ -153,57 +153,57 @@ public final class Functions {
     }
 
     public static <T, U extends Collection<T>> void ifAllMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
-        if (collection.stream().allMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().allMatch(predicate))
             consumer.accept(collection);
     }
 
     public static <T, U extends Collection<T>> void ifAllMatchDoOrElse(U collection, Predicate<T> predicate, Consumer<U> consumer, EmptyAction action) {
-        if (collection.stream().allMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().allMatch(predicate))
             consumer.accept(collection);
         else
             action.run();
     }
 
     public static <T, U extends Collection<T>, X extends Throwable> void ifAllMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
-        if (collection.stream().allMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().allMatch(predicate))
             consumer.accept(collection);
         else
             throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifAnyMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
-        if (collection.stream().anyMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().anyMatch(predicate))
             consumer.accept(collection);
     }
 
     public static <T, U extends Collection<T>> void ifAnyMatchDoOrElse(U collection, Predicate<T> predicate, Consumer<U> consumer, EmptyAction action) {
-        if (collection.stream().anyMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().anyMatch(predicate))
             consumer.accept(collection);
         else
             action.run();
     }
 
     public static <T, U extends Collection<T>, X extends Throwable> void ifAnyMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
-        if (collection.stream().anyMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().anyMatch(predicate))
             consumer.accept(collection);
         else
             throw supplier.get();
     }
 
     public static <T, U extends Collection<T>> void ifNoneMatchDo(U collection, Predicate<T> predicate, Consumer<U> consumer) {
-        if (collection.stream().noneMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().noneMatch(predicate))
             consumer.accept(collection);
     }
 
     public static <T, U extends Collection<T>> void ifNoneMatchDoOrElse(U collection, Predicate<T> predicate, Consumer<U> consumer, EmptyAction action) {
-        if (collection.stream().noneMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().noneMatch(predicate))
             consumer.accept(collection);
         else
             action.run();
     }
 
     public static <T, U extends Collection<T>, X extends Throwable> void ifNoneMatchDoOrElseThrow(U collection, Predicate<T> predicate, Consumer<U> consumer, Supplier<? extends X> supplier) throws X {
-        if (collection.stream().noneMatch(predicate))
+        if (Optional.ofNullable(collection).isPresent() && collection.stream().noneMatch(predicate))
             consumer.accept(collection);
         else
             throw supplier.get();
