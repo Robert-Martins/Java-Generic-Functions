@@ -107,7 +107,7 @@ public final class Functions {
 
     /**
      *
-     * Check if a value is Present and it's equal to another
+     * Check if a value is Present, and it's equal to another
      *
      * @param value Value that will be checked if it is Present and equal to the other
      * @param toBeEqualTo Value that if the first is Present will check equality between then
@@ -121,7 +121,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a value if it's Present and it's equal to another
+     * Do something with a value if it's Present, and it's equal to another
      *
      * @param value Value that will be checked if it is Present and equal to the other
      * @param toBeEqualTo Value that if the first is Present will check equality between then
@@ -135,7 +135,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a value if it's Present and it's equal to another or, if it isn't, run an action
+     * Do something with a value if it's Present, and it's equal to another or, if it isn't, run an action
      *
      * @param value Value that will be checked if it is Present and equal to the other
      * @param toBeEqualTo Value that if the first is Present will check equality between then
@@ -152,7 +152,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a value if it's Present and it's equal to another or, if it isn't, run an action
+     * Do something with a value if it's Present, and it's equal to another or, if it isn't, run an action
      *
      * @param value Value that will be checked if it is Present and equal to the other
      * @param toBeEqualTo Value that if the first is Present will check equality between then
@@ -383,7 +383,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if all of it's Elements matches a Predicate
+     * Do something with a Collection if all of its Elements matches a Predicate
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -397,7 +397,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if all of it's Elements matches a Predicate or, if any doesn't, execute an action
+     * Do something with a Collection if all of its Elements matches a Predicate or, if any doesn't, execute an action
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -414,7 +414,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if all of it's Elements matches a Predicate or, if any doesn't, throws exception
+     * Do something with a Collection if all of its Elements matches a Predicate or, if any doesn't, throws exception
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -431,7 +431,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if any of it's Elements matches a Predicate
+     * Do something with a Collection if any of its Elements matches a Predicate
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -445,7 +445,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if all of it's Elements matches a Predicate or, if none does, execute an action
+     * Do something with a Collection if all of its Elements matches a Predicate or, if none does, execute an action
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -462,7 +462,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if all of it's Elements matches a Predicate or, if none does, throws exception
+     * Do something with a Collection if all of its Elements matches a Predicate or, if none does, throws exception
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -479,7 +479,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if none of it's Elements matches a Predicate
+     * Do something with a Collection if none of its Elements matches a Predicate
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -493,7 +493,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if none of it's Elements matches a Predicate or, if any does, execute an action
+     * Do something with a Collection if none of its Elements matches a Predicate or, if any does, execute an action
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
@@ -510,7 +510,7 @@ public final class Functions {
 
     /**
      *
-     * Do something with a Collection if none of it's Elements matches a Predicate or, if any does, execute an action
+     * Do something with a Collection if none of its Elements matches a Predicate or, if any does, execute an action
      *
      * @param collection Collection which all Elements will be checked
      * @param predicate Predicate Function that will be used to Evaluate each Collection Element
