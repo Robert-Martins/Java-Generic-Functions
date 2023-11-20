@@ -293,6 +293,51 @@ public final class Functions {
 
     /**
      *
+     * Do something with a Value if it is empty
+     *
+     * @param value Value to be checked if it is Empty
+     * @param action Empty Action that will be executed if value isn't present
+     *
+     */
+    public static <T> void ifEmptyDo(T value, EmptyAction action) {
+        if(Optional.ofNullable(value).isEmpty())
+            action.run();
+    }
+
+    /**
+     *
+     * Do something with a Value if it is empty o , if it isn't, do something with it
+     *
+     * @param value Value to be checked if it is Empty
+     * @param action Empty Action that will be executed if value isn't present
+     * @param consumer Consumer Function that accepts value
+     *
+     */
+    public static <T> void ifEmptyDoOrElse(T value, EmptyAction action, Consumer<T> consumer) {
+        if(Optional.ofNullable(value).isEmpty())
+            action.run();
+        else
+            consumer.accept(value);
+    }
+
+    /**
+     *
+     * Do something with a Value if it is empty o , if it isn't, do something with it
+     *
+     * @param value Value to be checked if it is Empty
+     * @param action Empty Action that will be executed if value isn't present
+     * @param supplier Supplier Function that throws an exception if value is present
+     *
+     */
+    public static <T, X extends Throwable> void ifEmptyDoOrElseThrow(T value, EmptyAction action, Supplier<? extends X> supplier) throws X {
+        if(Optional.ofNullable(value).isEmpty())
+            action.run();
+        else
+            throw supplier.get();
+    }
+
+    /**
+     *
      * Do something with a Collection if it isn't empty
      *
      * @param collection Collection to be checked if it isn't Empty

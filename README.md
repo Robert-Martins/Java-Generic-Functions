@@ -1,6 +1,6 @@
 ## Java Generic Functions
 
-<img src="https://img.shields.io/badge/Status-Concluded-green" /> <img src="https://img.shields.io/badge/Version-1.0.0-green" />
+<img src="https://img.shields.io/badge/Status-Concluded-green" /> <img src="https://img.shields.io/badge/Version-1.1.0-green" />
 
 <br>
 

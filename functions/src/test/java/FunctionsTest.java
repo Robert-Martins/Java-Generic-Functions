@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -223,6 +224,39 @@ public class FunctionsTest {
                         SUCCESSFUL,
                         Boolean.TRUE,
                         str -> INITIAL_ARRAY[FIRST_ARRAY_INDEX] = str,
+                        RuntimeException::new
+                )
+        );
+    }
+
+    @Test
+    public void testIfEmptyDo() {
+        String[] value = INITIAL_ARRAY;
+        Functions.ifEmptyDo(
+                Optional.empty(),
+                () -> value[FIRST_ARRAY_INDEX] = SUCCESSFUL
+        );
+        assertEquals(SUCCESSFUL, value[FIRST_ARRAY_INDEX]);
+    }
+
+    @Test
+    public void testIfEmptyDoOrElse() {
+        String[] value = INITIAL_ARRAY;
+        Functions.ifEmptyDoOrElse(
+                SUCCESSFUL,
+                () -> value[FIRST_ARRAY_INDEX] = SECONDARY,
+                val -> value[FIRST_ARRAY_INDEX] = SUCCESSFUL
+        );
+        assertEquals(SUCCESSFUL, value[FIRST_ARRAY_INDEX]);
+    }
+
+    @Test
+    public void testIfEmptyDoOrElseThrow() {
+        assertThrows(
+                RuntimeException.class,
+                () -> Functions.ifEmptyDoOrElseThrow(
+                        SUCCESSFUL,
+                        () -> INITIAL_ARRAY[FIRST_ARRAY_INDEX] = SUCCESSFUL,
                         RuntimeException::new
                 )
         );
